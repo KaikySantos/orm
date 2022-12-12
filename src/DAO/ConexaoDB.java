@@ -6,7 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class ConexaoDB {
-    //TODO: criar vari�veis de ambiente para os dados de acesso ao banco.
     private static final String dbName = "carloskaiky20211045050560";
     private static final String dbURL = "jdbc:postgresql://200.17.32.221:5432/";
     private static final String username = "postgres";

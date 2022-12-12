@@ -134,8 +134,8 @@ public class ValorReferenciaComposicaoExameDAO extends ConexaoDB {
 			statement.setString(3, entidade.getLimitador_minimo());
 			statement.setString(4, entidade.getLimitador_maximo());
 			statement.setInt(5, entidade.getUnidade_medida_id());
-			
 			statement.setLong(6, entidade.getId());
+			statement.executeUpdate();
 
 		} catch (ClassNotFoundException e) {
 			throw new RuntimeException(e);

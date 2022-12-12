@@ -126,6 +126,7 @@ public class ContatoDAO extends ConexaoDB {
 			statement.setString(1, entidade.getTelefone());
 			statement.setInt(2, entidade.getLaboratorio_id());
 			statement.setLong(3, entidade.getId());
+			statement.executeUpdate();
 
 		} catch (ClassNotFoundException e) {
 			throw new RuntimeException(e);

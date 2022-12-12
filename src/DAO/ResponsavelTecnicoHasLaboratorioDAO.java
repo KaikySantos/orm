@@ -108,6 +108,7 @@ public class ResponsavelTecnicoHasLaboratorioDAO extends ConexaoDB {
             statement.setInt(1, entidade.getResponsavel_tecnico_id());
             statement.setInt(2, entidade.getLaboratorio_id());
             statement.setLong(3, entidade.getId());
+            statement.executeUpdate();
 
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);

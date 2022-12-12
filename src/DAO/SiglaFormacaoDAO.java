@@ -123,6 +123,7 @@ public class SiglaFormacaoDAO extends ConexaoDB {
 			try (PreparedStatement statement = prepararSQL(UPDATE_SIGLA_FORMACAO_SQL)) {
 				statement.setString(1, entidade.getSigla());
 				statement.setLong(2, entidade.getId());
+				statement.executeUpdate();
 
 			} catch (ClassNotFoundException e) {
 				throw new RuntimeException(e);

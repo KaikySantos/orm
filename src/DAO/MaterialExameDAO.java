@@ -128,6 +128,7 @@ public class MaterialExameDAO extends ConexaoDB {
 			statement.setString(1, entidade.getMaterial());
 			statement.setString(2, entidade.getObservacao());
 			statement.setLong(3, entidade.getId());
+			statement.executeUpdate();
 
 		} catch (ClassNotFoundException e) {
 			throw new RuntimeException(e);

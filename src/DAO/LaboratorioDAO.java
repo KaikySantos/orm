@@ -139,6 +139,7 @@ public class LaboratorioDAO extends ConexaoDB {
   			statement.setString(3, entidade.getCnpj());
   			statement.setString(4, entidade.getCrbm());
   			statement.setLong(5, entidade.getId());
+  			statement.executeUpdate();
 
   		} catch (ClassNotFoundException e) {
   			throw new RuntimeException(e);

@@ -130,6 +130,7 @@ public class ComposicaoDAO extends ConexaoDB {
 			statement.setInt(1, entidade.getComposicao_exame_id());
 			statement.setInt(2, entidade.getValor_referencia_composicao_exame_id());
 			statement.setLong(3, entidade.getId());
+			statement.executeUpdate();
 
 		} catch (ClassNotFoundException e) {
 			throw new RuntimeException(e);

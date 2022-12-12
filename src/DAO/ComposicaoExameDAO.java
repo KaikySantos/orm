@@ -127,6 +127,7 @@ public class ComposicaoExameDAO extends ConexaoDB {
 			statement.setString(1, entidade.getDescricao());
 			statement.setInt(2, entidade.getUnidade_medida_id());
 			statement.setLong(3, entidade.getId());
+			statement.executeUpdate();
 
 		} catch (ClassNotFoundException e) {
 			throw new RuntimeException(e);

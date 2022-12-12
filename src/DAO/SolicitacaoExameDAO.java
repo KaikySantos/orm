@@ -137,8 +137,8 @@ public class SolicitacaoExameDAO extends ConexaoDB {
 			statement.setInt(3, entidade.getConsulta_medica_id());
 			statement.setInt(4, entidade.getHabilitacao_exame_id());
 			statement.setInt(5, entidade.getExame_id());
-			
 			statement.setLong(6, entidade.getId());
+			statement.executeUpdate();
 
 		} catch (ClassNotFoundException e) {
 			throw new RuntimeException(e);

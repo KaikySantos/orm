@@ -141,8 +141,8 @@ public class HabilitacaoExameDAO extends ConexaoDB {
 			statement.setDouble(2, entidade.getCusto());
 			statement.setInt(3, entidade.getId_laboratorio());
 			statement.setInt(4, entidade.getTipo_exame_id());
-			
 			statement.setLong(5, entidade.getId());
+			statement.executeUpdate();
 
 		} catch (ClassNotFoundException e) {
 			throw new RuntimeException(e);

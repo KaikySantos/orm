@@ -141,8 +141,8 @@ public class ResponsavelTecnicoDAO extends ConexaoDB {
 			statement.setString(2, entidade.getConselho());
 			statement.setString(3, entidade.getFormacao());
 			statement.setInt(4, entidade.getSigla_formacao_id());
-			
 			statement.setLong(5, entidade.getId());
+			statement.executeUpdate();
 
 		} catch (ClassNotFoundException e) {
 			throw new RuntimeException(e);

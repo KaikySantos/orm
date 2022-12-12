@@ -108,6 +108,7 @@ public class MedicoHasEspecialidadeDAO extends ConexaoDB {
             statement.setInt(1, entidade.getMedico_id());
             statement.setInt(2, entidade.getEspecialidade_id());
             statement.setLong(3, entidade.getId());
+            statement.executeUpdate();
 
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);

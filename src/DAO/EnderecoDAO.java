@@ -144,8 +144,8 @@ public class EnderecoDAO extends ConexaoDB {
 			statement.setString(5, entidade.getBairro());
 			statement.setString(6, entidade.getCep());
 			statement.setInt(7, entidade.getLaboratorio_id());
-			
 			statement.setLong(8, entidade.getId());
+			statement.executeUpdate();
 
 		} catch (ClassNotFoundException e) {
 			throw new RuntimeException(e);
