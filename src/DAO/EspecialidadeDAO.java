@@ -128,8 +128,8 @@ public class EspecialidadeDAO extends ConexaoDB {
 			statement.setString(1, entidade.getDescricao());
 			statement.setString(2, entidade.getObservacao());
 			statement.setLong(3, entidade.getId());
-			statement.executeUpdate();
 
+			statement.executeUpdate();
 		} catch (ClassNotFoundException e) {
 			throw new RuntimeException(e);
 		}

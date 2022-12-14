@@ -130,8 +130,8 @@ public class PacienteDAO extends ConexaoDB {
 			java.sql.Date sqlDate = new java.sql.Date(entidade.getDt_nascimento().getTime());
 			statement.setDate(2, sqlDate) ;
 			statement.setLong(3, entidade.getId());
-			statement.executeUpdate();
 
+			statement.executeUpdate();
 		} catch (ClassNotFoundException e) {
 			throw new RuntimeException(e);
 		}

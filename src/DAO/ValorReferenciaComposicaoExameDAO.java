@@ -7,13 +7,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.ValorReferenciaComposicaoExame;
+import servico.ServicoUnidadeMedida;
 
 public class ValorReferenciaComposicaoExameDAO extends ConexaoDB {
-	private static final String INSERT_VALOR_REFERENCIA_COMPOSICAO_EXAME_SQL = "INSERT INTO VALOR_REFERENCIA_COMPOSICAO_EXAME (VALOR_MINIMO, VALOR_MAXIMO, LIMITADOR_MINIMO, LIMITADOR_MAXIMO, UNIDADE_MEDIDA) VALUES (?, ?, ?, ?, ?);";
-	private static final String SELECT_VALOR_REFERENCIA_COMPOSICAO_EXAME_BY_ID = "SELECT id, VALOR_MINIMO, VALOR_MAXIMO, LIMITADOR_MINIMO, LIMITADOR_MAXIMO, UNIDADE_MEDIDA FROM VALOR_REFERENCIA_COMPOSICAO_EXAME WHERE id = ?";
+	private static ServicoUnidadeMedida servicoUnidadeMedida = new ServicoUnidadeMedida();
+	private static final String INSERT_VALOR_REFERENCIA_COMPOSICAO_EXAME_SQL = "INSERT INTO VALOR_REFERENCIA_COMPOSICAO_EXAME (VALOR_MINIMO, VALOR_MAXIMO, LIMITADOR_MINIMO, LIMITADOR_MAXIMO, UNIDADE_MEDIDA_ID) VALUES (?, ?, ?, ?, ?);";
+	private static final String SELECT_VALOR_REFERENCIA_COMPOSICAO_EXAME_BY_ID = "SELECT id, VALOR_MINIMO, VALOR_MAXIMO, LIMITADOR_MINIMO, LIMITADOR_MAXIMO, UNIDADE_MEDIDA_ID FROM VALOR_REFERENCIA_COMPOSICAO_EXAME WHERE id = ?";
 	private static final String SELECT_ALL_VALOR_REFERENCIA_COMPOSICAO_EXAME = "SELECT * FROM VALOR_REFERENCIA_COMPOSICAO_EXAME;";
 	private static final String DELETE_VALOR_REFERENCIA_COMPOSICAO_EXAME_SQL = "DELETE FROM VALOR_REFERENCIA_COMPOSICAO_EXAME WHERE id = ?;";
-	private static final String UPDATE_VALOR_REFERENCIA_COMPOSICAO_EXAME_SQL = "UPDATE VALOR_REFERENCIA_COMPOSICAO_EXAME SET VALOR_MINIMO = ?, VALOR_MAXIMO = ?, LIMITADOR_MINIMO = ?, LIMITADOR_MAXIMO = ?, UNIDADE_MEDIDA = ? WHERE id = ?;";
+	private static final String UPDATE_VALOR_REFERENCIA_COMPOSICAO_EXAME_SQL = "UPDATE VALOR_REFERENCIA_COMPOSICAO_EXAME SET VALOR_MINIMO = ?, VALOR_MAXIMO = ?, LIMITADOR_MINIMO = ?, LIMITADOR_MAXIMO = ?, UNIDADE_MEDIDA_ID = ? WHERE id = ?;";
 	private static final String TOTAL = "SELECT count(1) FROM VALOR_REFERENCIA_COMPOSICAO_EXAME;";
     
     public Integer count() {
@@ -41,7 +43,7 @@ public class ValorReferenciaComposicaoExameDAO extends ConexaoDB {
 			preparedStatement.setString(2, entidade.getValor_maximo());
 			preparedStatement.setString(3, entidade.getLimitador_minimo());
 			preparedStatement.setString(4, entidade.getLimitador_maximo());
-			preparedStatement.setInt(5, entidade.getUnidade_medida_id());
+			preparedStatement.setLong(5, entidade.getUnidade_medida_id().getId());
 			
 			preparedStatement.executeUpdate();
 
@@ -78,7 +80,7 @@ public class ValorReferenciaComposicaoExameDAO extends ConexaoDB {
 						valorMaximo,
 						limitadorMinimo,
 						limitadorMaximo,
-						unidadeMedida);
+						servicoUnidadeMedida.buscarPorId(unidadeMedida));
 			}
 		} catch (SQLException e) {
 			printSQLException(e);
@@ -107,7 +109,7 @@ public class ValorReferenciaComposicaoExameDAO extends ConexaoDB {
 						valorMaximo,
 						limitadorMinimo,
 						limitadorMaximo,
-						unidadeMedida));
+						servicoUnidadeMedida.buscarPorId(unidadeMedida)));
 			}
 		} catch (SQLException e) {
 			printSQLException(e);
@@ -133,10 +135,10 @@ public class ValorReferenciaComposicaoExameDAO extends ConexaoDB {
 			statement.setString(2, entidade.getValor_maximo());
 			statement.setString(3, entidade.getLimitador_minimo());
 			statement.setString(4, entidade.getLimitador_maximo());
-			statement.setInt(5, entidade.getUnidade_medida_id());
+			statement.setLong(5, entidade.getUnidade_medida_id().getId());
 			statement.setLong(6, entidade.getId());
-			statement.executeUpdate();
 
+			statement.executeUpdate();
 		} catch (ClassNotFoundException e) {
 			throw new RuntimeException(e);
 		}

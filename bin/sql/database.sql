@@ -101,7 +101,7 @@ CREATE TABLE exame (
     ID SERIAL PRIMARY KEY,
     descricao VARCHAR(45) NOT NULL,
     metodo VARCHAR(255) NOT NULL,
-    material_exame_id INT NOT NULL REFERENCES laboratorio(id),
+    material_exame_id INT NOT NULL REFERENCES material_exame(id),
     tipo_exame_id INT NOT NULL REFERENCES tipo_exame(id)
 );
 
@@ -157,5 +157,5 @@ CREATE TABLE resultado_exame (
      dt_exame DATE NOT NULL,
      valor VARCHAR(45) NOT NULL,
      composicao_id INT NOT NULL REFERENCES composicao(id),
-     laudo_id INT NOT NULL REFERENCES laudo(id),
+     laudo_id INT NOT NULL REFERENCES laudo(id)
 );
